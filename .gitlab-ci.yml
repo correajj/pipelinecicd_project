@@ -7,7 +7,7 @@ criar_imagens:
   tags: 
     - gcp
   script: 
-    - docker build -t correajj/projeto_cicd_dio app/.
+    - docker build -t correajj/projeto_cicd_dio:1.0 app/.
     - docker push correajj/projeto_cicd_dio:1.0
 
 
@@ -15,5 +15,7 @@ executar_imagens:
   stage: deploy
   needs:
     - criar_imagens
+  tags:
+    - gcp
   script: 
     - docker run -dti --name webserver -p 80:80 correajj/projeto_cicd_dio:1.0
