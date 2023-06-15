@@ -5,7 +5,7 @@ stages:
 criar_imagens:
   stage: build
   tags: 
-    -gcp
+    - gcp
   script: 
     - docker build -t correajj/projeto_cicd_dio app/.
     - docker push correajj/projeto_cicd_dio:1.0
